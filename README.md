@@ -2,7 +2,7 @@
 
 ### [https://fir-gallery-dd503.web.app/](https://fir-gallery-dd503.web.app/)
 
-![SCREEN](https://user-images.githubusercontent.com/40764780/117391950-56b53680-aef1-11eb-9b0e-92affe5f7938.png)
+![gallery](https://user-images.githubusercontent.com/40764780/142878993-88d09ccd-1f9e-433d-9bda-cda72f6da339.png)
 
 ### Technologies
 - React
