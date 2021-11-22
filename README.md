@@ -5,21 +5,22 @@
 ![gallery](https://user-images.githubusercontent.com/40764780/142878993-88d09ccd-1f9e-433d-9bda-cda72f6da339.png)
 
 ### Technologies
-- React
-- MongoDB
+- React 17
+- React Router 5
+- Firebase 9
 - Express
-- Bootstrap 4
-- styled components
+- Bootstrap 5
+- styled components 5
+- material-ui 4
+- framer-motion 4
+- moment
 
 ### Features
 
-- Full featured shopping cart
-- Car search feature
-- User profile with orders
-- Admin product management
-- Admin user management
-- Admin Order details page
-- PayPal / credit card integration
+- User Profile
+- Adding photos by the admin
+- Likes and comments on photos
+
 
 ### Env Variables
 Create a .env file in then root and add the following
@@ -32,33 +33,17 @@ JWT_SECRET = 'abc123'
 PAYPAL_CLIENT_ID = your paypal client id
 ```
 
-### Install Dependencies (frontend & backend)
+### Install Dependencies
 ```
 npm install
-cd frontend
-npm install
+
 ```
 ### Run
 ```
-Run frontend (:3000) & backend (:5000)
-npm run dev
+npm start
 
-Run backend only
-npm run server
 ```
 
-Seed Database
-You can use the following commands to seed the database with some sample users and products as well as destroy all data
-
-### Import data
-```
-npm run data:import
-```
-
-### Destroy data
-```
-npm run data:destroy
-```
 ### Admin Panel
 ```
 user: admin@example.com
