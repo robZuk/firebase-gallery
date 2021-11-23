@@ -8,6 +8,7 @@ import AddComment from "./AddComment";
 import { useAuth } from "../../hooks/useAuth";
 import { db } from "../../firebase/config";
 import { doc } from "firebase/firestore";
+import moment from "moment";
 
 const StyledBackdrop = styled.div`
   position: fixed;
@@ -47,15 +48,26 @@ const StyledAnimation = styled(motion.div)`
   }
 `;
 
+const StyledImageContainer = styled.div`
+  position: relative;
+`;
+
 const StyledImg = styled.img`
-  //z-index: 2;
   width: 100%;
   cursor: pointer;
   object-fit: cover;
 `;
+const StyledTitle = styled.aside`
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  font-size: 16px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+`;
 
 const Wrapper = styled.div`
-  //z-index: 2;
   margin: 0px;
   width: 100%;
   min-height: 200px;
@@ -82,11 +94,19 @@ const Modal = ({ setSelectedImg, selectedImg }) => {
   return (
     <StyledBackdrop>
       <StyledAnimation initial={{ y: "-100vh" }} animate={{ y: 0 }}>
-        <StyledImg
-          src={selectedImg.url}
-          alt="enlarged pic"
-          onClick={handleClick}
-        />
+        <StyledImageContainer>
+          <StyledImg
+            src={selectedImg.url}
+            alt="enlarged pic"
+            onClick={handleClick}
+          />
+          <StyledTitle>
+            added by {selectedImg.name}{" "}
+            {moment(selectedImg.createdAt.toDate())
+              .startOf("minutes")
+              .fromNow()}
+          </StyledTitle>
+        </StyledImageContainer>
         <Wrapper>
           <LikesAndComments
             img={image}
