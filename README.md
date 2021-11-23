@@ -18,7 +18,7 @@
 ### Features
 
 - User Profile
-- Adding photos by the admin
+- Adding photos
 - Likes and comments on photos
 
 
