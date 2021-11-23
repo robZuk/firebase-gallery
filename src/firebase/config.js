@@ -5,13 +5,6 @@ import { getAuth } from "firebase/auth";
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-  // apiKey: "AIzaSyB3fpQpAIOilvoodDWZoP1nJ4Jvjw7u4Bk",
-  // authDomain: "ninja-firegram-8c985.firebaseapp.com",
-  // projectId: "ninja-firegram-8c985",
-  // storageBucket: "ninja-firegram-8c985.appspot.com",
-  // messagingSenderId: "86712374070",
-  // appId: "1:86712374070:web:a94c3a46184fdaec40d997",
-
   apiKey: "AIzaSyCCPUXQHmJNeqn4SY3Uq9oglYXYNQtjZ8w",
   authDomain: "fir-gallery-dd503.firebaseapp.com",
   projectId: "fir-gallery-dd503",
