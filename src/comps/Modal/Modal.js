@@ -81,7 +81,6 @@ const Modal = ({ setSelectedImg, selectedImg }) => {
   const [inputFocus, setInputFocus] = useState(false);
   const [image, setImage] = useState();
 
-  console.log(inputFocus);
   const imageRef = doc(db, "images", selectedImg.id);
 
   const handleFocus = () => {
@@ -124,7 +123,8 @@ const Modal = ({ setSelectedImg, selectedImg }) => {
             img={image}
             currentUser={currentUser}
             imageRef={imageRef}
-            inptFocus={inputFocus}
+            inputFocus={inputFocus}
+            setInputFocus={setInputFocus}
           />
         </Wrapper>
       </StyledAnimation>

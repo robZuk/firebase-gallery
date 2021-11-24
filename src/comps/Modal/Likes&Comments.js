@@ -34,6 +34,10 @@ const StyledFavoriteIcon = styled(FavoriteIcon)`
   text-align: center;
 `;
 
+const StyledChatBubbleOutlineIcon = styled(ChatBubbleOutlineIcon)`
+  cursor: pointer;
+`;
+
 function LikesAndComments({ img, currentUser, imageRef, handleFocus }) {
   const history = useHistory();
   const [like, setLike] = useState();
@@ -64,8 +68,20 @@ function LikesAndComments({ img, currentUser, imageRef, handleFocus }) {
           <StyledFavoriteIcon onClick={updateLike} $like={like} />
         </motion.i>
       </div>
+
       <p>Likes: {img && img.likes ? img.likes.length : 0} </p>
-      <ChatBubbleOutlineIcon onClick={handleFocus} />
+      <div
+        style={{
+          position: "relative",
+          display: "grid",
+          alignItems: "center",
+          justifyItems: "center",
+        }}
+      >
+        <motion.i whileTap={{ scale: 1.2 }} style={{ position: "absolute" }}>
+          <StyledChatBubbleOutlineIcon onClick={handleFocus} />
+        </motion.i>
+      </div>
       <p>Comments: {img && img.comments ? img.comments.length : 0} </p>
     </StyledWrapper>
   );

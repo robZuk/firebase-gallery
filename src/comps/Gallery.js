@@ -26,7 +26,6 @@ const Gallery = () => {
   const [selectedImg, setSelectedImg] = useState(null);
   const { currentUser } = useAuth();
 
-  console.log(currentUser);
   const classes = useStyles();
   return (
     <div>
