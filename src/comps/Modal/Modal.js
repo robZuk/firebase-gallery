@@ -78,10 +78,15 @@ const Wrapper = styled.div`
 const Modal = ({ setSelectedImg, selectedImg }) => {
   const { docs } = useFirestore("images");
   const { currentUser } = useAuth();
-
+  const [inputFocus, setInputFocus] = useState(false);
   const [image, setImage] = useState();
 
+  console.log(inputFocus);
   const imageRef = doc(db, "images", selectedImg.id);
+
+  const handleFocus = () => {
+    setInputFocus(true);
+  };
 
   const handleClick = () => {
     setSelectedImg(null);
@@ -112,12 +117,14 @@ const Modal = ({ setSelectedImg, selectedImg }) => {
             img={image}
             currentUser={currentUser}
             imageRef={imageRef}
+            handleFocus={handleFocus}
           />
           <Comments img={image} currentUser={currentUser} imageRef={imageRef} />
           <AddComment
             img={image}
             currentUser={currentUser}
             imageRef={imageRef}
+            inptFocus={inputFocus}
           />
         </Wrapper>
       </StyledAnimation>

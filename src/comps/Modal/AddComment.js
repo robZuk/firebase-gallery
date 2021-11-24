@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { addComment } from "../../firebase/firestore";
@@ -49,7 +49,8 @@ const StyledButton = styled.button`
   }
 `;
 
-const AddComment = ({ currentUser, imageRef }) => {
+const AddComment = ({ currentUser, imageRef, inputFocus }) => {
+  const [focus, setFocus] = useState();
   const textareaRef = useRef();
   const history = useHistory();
 
@@ -70,6 +71,7 @@ const AddComment = ({ currentUser, imageRef }) => {
       <StyledForm onSubmit={handleSubmit}>
         <StyledTextarea
           onFocus={handleFocus}
+          autoFocus={inputFocus}
           placeholder="Add comment ..."
           ref={textareaRef}
           rows="3"

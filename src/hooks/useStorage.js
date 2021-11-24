@@ -50,7 +50,7 @@ const useStorage = (file) => {
       }
     );
     return () => unsub();
-  }, [file, db]);
+  }, [file, db, currentUser.displayName]);
 
   return { progress, url, error };
 };

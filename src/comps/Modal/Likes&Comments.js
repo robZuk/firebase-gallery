@@ -34,7 +34,7 @@ const StyledFavoriteIcon = styled(FavoriteIcon)`
   text-align: center;
 `;
 
-function LikesAndComments({ img, currentUser, imageRef }) {
+function LikesAndComments({ img, currentUser, imageRef, handleFocus }) {
   const history = useHistory();
   const [like, setLike] = useState();
 
@@ -65,7 +65,7 @@ function LikesAndComments({ img, currentUser, imageRef }) {
         </motion.i>
       </div>
       <p>Likes: {img && img.likes ? img.likes.length : 0} </p>
-      <ChatBubbleOutlineIcon />
+      <ChatBubbleOutlineIcon onClick={handleFocus} />
       <p>Comments: {img && img.comments ? img.comments.length : 0} </p>
     </StyledWrapper>
   );
