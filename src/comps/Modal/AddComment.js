@@ -69,11 +69,15 @@ const AddComment = ({ currentUser, imageRef, inputFocus, setInputFocus }) => {
     !currentUser && history.push("/login");
   };
 
+  const handleBlur = () => {
+    setInputFocus(false);
+  };
+
   return (
     <StyledWrapper>
       <StyledForm onSubmit={handleSubmit}>
         <StyledTextarea
-          onBlur={setInputFocus(false)}
+          onBlur={handleBlur}
           onClick={handleFocus}
           placeholder="Add comment ..."
           ref={textareaRef}

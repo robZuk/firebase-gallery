@@ -58,13 +58,18 @@ const StyledImg = styled.img`
   object-fit: cover;
 `;
 const StyledTitle = styled.aside`
+  width: 95%;
   position: absolute;
-  bottom: 20px;
-  right: 12px;
+  bottom: 0;
+  text-align: right;
+  padding: 5px 5% 10px 0px;
+  margin: 0;
   font-size: 16px;
   color: white;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 22px -13px rgba(0, 0, 8, 1);
 `;
 
 const Wrapper = styled.div`
@@ -93,7 +98,7 @@ const Modal = ({ setSelectedImg, selectedImg }) => {
 
   useEffect(() => {
     docs.forEach((doc) => doc.id === selectedImg.id && setImage(doc));
-  }, [docs, selectedImg.id, image]);
+  }, [docs, selectedImg.id, image, inputFocus]);
 
   return (
     <StyledBackdrop>
