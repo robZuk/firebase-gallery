@@ -2,16 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-const path = require("path");
-const __dirname = path.resolve();
+// const path = require("path");
+// const __dirname = path.resolve();
 
-require("dotenv").config({ path: path.resolve(__dirname, "../", ".env") });
-//import dotenv from "dotenv";
-//require("dotenv").config({ path: require("find-config")(".env") });
+//require("dotenv").config({ path: path.resolve(__dirname, "../", ".env") });
+import dotenv from "dotenv";
 
-//dotenv.config();
+dotenv.config();
 
-//require("dotenv").config();
 // TODO: Replace the following with your app's Firebase project configuration
 console.log(process.env);
 const firebaseConfig = {
