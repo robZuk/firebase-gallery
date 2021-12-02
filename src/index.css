@@ -9,8 +9,9 @@ body {
   padding: 0;
   box-sizing: border-box;
   color: var(--secondary);
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  /* overflow: hidden; */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 body::-webkit-scrollbar {
   display: none;
@@ -18,4 +19,8 @@ body::-webkit-scrollbar {
 
 .error {
   color: var(--error);
+}
+
+.no-scroll {
+  overflow: hidden;
 }

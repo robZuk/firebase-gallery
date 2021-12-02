@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../hooks/useAuth";
 import UploadForm from "../comps/UploadForm";
 import ImageGrid from "../comps/ImageGrid";
@@ -25,6 +25,12 @@ const useStyles = makeStyles((theme) => ({
 const Gallery = () => {
   const [selectedImg, setSelectedImg] = useState(null);
   const { currentUser } = useAuth();
+
+  useEffect(() => {
+    selectedImg
+      ? document.body.classList.add("no-scroll")
+      : document.body.classList.remove("no-scroll");
+  }, [selectedImg]);
 
   const classes = useStyles();
   return (

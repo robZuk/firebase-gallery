@@ -11,15 +11,17 @@ import { doc } from "firebase/firestore";
 import moment from "moment";
 
 const StyledBackdrop = styled.div`
+  z-index: 2;
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
 `;
 
 const StyledAnimation = styled(motion.div)`
