@@ -8,12 +8,12 @@ dotenv.config();
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCCPUXQHmJNeqn4SY3Uq9oglYXYNQtjZ8w",
-  authDomain: "fir-gallery-dd503.firebaseapp.com",
-  projectId: "fir-gallery-dd503",
-  storageBucket: "fir-gallery-dd503.appspot.com",
-  messagingSenderId: "950243924116",
-  appId: "1:950243924116:web:a5fc51a5ab0d877b8cfc81",
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

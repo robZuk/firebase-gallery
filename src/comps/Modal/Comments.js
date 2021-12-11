@@ -25,9 +25,6 @@ const StyledWrapper = styled.div`
     }
   }
 
-  /* & > div:nth-child(1) {
-    color: red;
-  } */
   & div > div {
     display: grid;
     grid-template-columns: 5fr 1fr;

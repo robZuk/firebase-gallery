@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import useFirestore from "../../hooks/useFirestore";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import styled from "styled-components";
 import LikesAndComments from "./Likes&Comments";
 import Comments from "./Comments";
@@ -24,12 +24,13 @@ const StyledBackdrop = styled.div`
   background: rgba(0, 0, 0, 0.8);
 `;
 
-const StyledAnimation = styled(motion.div)`
+const StyledAnimation = styled(m.div)`
   position: relative;
   margin: 20px auto;
   width: 100%;
   max-width: 756px;
-  max-height: 750px;
+  height: auto;
+  max-height: 95vh;
   background: white;
   overflow-x: hide;
   overflow-y: scroll;
@@ -39,15 +40,7 @@ const StyledAnimation = styled(motion.div)`
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
-
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.3);
-  @media (max-width: 812px) and (orientation: landscape) {
-    max-width: 80vw;
-    max-height: 340px;
-  }
-  @media (max-width: 812px) and (orientation: portrait) {
-    max-height: 650px;
-  }
 `;
 
 const StyledImageContainer = styled.div`
@@ -58,6 +51,12 @@ const StyledImg = styled.img`
   width: 100%;
   cursor: pointer;
   object-fit: cover;
+  @media (orientation: landscape) {
+    max-height: 95vh;
+  }
+  @media (orientation: portrait) {
+    max-height: 50vh;
+  }
 `;
 const StyledTitle = styled.aside`
   width: 95%;
@@ -76,8 +75,8 @@ const StyledTitle = styled.aside`
 
 const Wrapper = styled.div`
   margin: 0px;
+  padding: 0;
   width: 100%;
-  min-height: 200px;
   display: grid;
   grid-template-rows: 40px minmax(auto, 230px) 70px;
 `;
@@ -104,37 +103,43 @@ const Modal = ({ setSelectedImg, selectedImg }) => {
 
   return (
     <StyledBackdrop>
-      <StyledAnimation initial={{ y: "-100vh" }} animate={{ y: 0 }}>
-        <StyledImageContainer>
-          <StyledImg
-            src={selectedImg.url}
-            alt="enlarged pic"
-            onClick={handleClick}
-          />
-          <StyledTitle>
-            added by {selectedImg.name}{" "}
-            {moment(selectedImg.createdAt.toDate())
-              .startOf("minutes")
-              .fromNow()}
-          </StyledTitle>
-        </StyledImageContainer>
-        <Wrapper>
-          <LikesAndComments
-            img={image}
-            currentUser={currentUser}
-            imageRef={imageRef}
-            handleFocus={handleFocus}
-          />
-          <Comments img={image} currentUser={currentUser} imageRef={imageRef} />
-          <AddComment
-            img={image}
-            currentUser={currentUser}
-            imageRef={imageRef}
-            inputFocus={inputFocus}
-            setInputFocus={setInputFocus}
-          />
-        </Wrapper>
-      </StyledAnimation>
+      <LazyMotion features={domAnimation}>
+        <StyledAnimation initial={{ y: "-100vh" }} animate={{ y: 0 }}>
+          <StyledImageContainer>
+            <StyledImg
+              src={selectedImg.url}
+              alt="enlarged pic"
+              onClick={handleClick}
+            />
+            <StyledTitle>
+              added by {selectedImg.name}{" "}
+              {moment(selectedImg.createdAt.toDate())
+                .startOf("minutes")
+                .fromNow()}
+            </StyledTitle>
+          </StyledImageContainer>
+          <Wrapper>
+            <LikesAndComments
+              img={image}
+              currentUser={currentUser}
+              imageRef={imageRef}
+              handleFocus={handleFocus}
+            />
+            <Comments
+              img={image}
+              currentUser={currentUser}
+              imageRef={imageRef}
+            />
+            <AddComment
+              img={image}
+              currentUser={currentUser}
+              imageRef={imageRef}
+              inputFocus={inputFocus}
+              setInputFocus={setInputFocus}
+            />
+          </Wrapper>
+        </StyledAnimation>
+      </LazyMotion>
     </StyledBackdrop>
   );
 };

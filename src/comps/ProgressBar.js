@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import useStorage from "../hooks/useStorage";
 import { motion } from "framer-motion";
-import { makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
 
 const ProgressBar = ({ file, setFile }) => {

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { addComment } from "../../firebase/firestore";
@@ -6,7 +6,6 @@ import SendSharpIcon from "@material-ui/icons/SendSharp";
 
 const StyledWrapper = styled.div`
   width: 100%;
-  height: 100%;
   position: relative;
   align-items: center;
   border-top: 1px solid gray;
