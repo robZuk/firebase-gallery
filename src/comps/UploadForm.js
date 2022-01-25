@@ -7,8 +7,6 @@ import Alert from "@material-ui/lab/Alert";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 
-import { motion } from "framer-motion";
-
 const useStyles = makeStyles((theme) => ({
   input: {
     display: "none",
@@ -50,16 +48,7 @@ const UploadForm = () => {
 
   return (
     <>
-      <motion.form
-        className={classes.form}
-        initial={{ x: "calc(100vw + 50%)" }}
-        animate={{ x: 0 }}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          delay: 0.2,
-        }}
-      >
+      <form className={classes.form}>
         <input
           accept="image/*"
           className={classes.input}
@@ -96,7 +85,7 @@ const UploadForm = () => {
           )}
           {file && <ProgressBar file={file} setFile={setFile} />}
         </div>
-      </motion.form>
+      </form>
     </>
   );
 };

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../hooks/useAuth";
+import useFirestore from "../hooks/useFirestore";
 import UploadForm from "../comps/UploadForm";
 import ImageGrid from "../comps/ImageGrid";
 import Modal from "../comps/Modal/Modal";
 import Navigation from "./Navigation";
-import { motion } from "framer-motion";
+import Loader from "./Loader";
 import { makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
 import Typography from "@material-ui/core/Typography";
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 const Gallery = () => {
   const [selectedImg, setSelectedImg] = useState(null);
   const { currentUser } = useAuth();
+  const { loading } = useFirestore("images");
 
   useEffect(() => {
     selectedImg
@@ -35,30 +37,27 @@ const Gallery = () => {
   const classes = useStyles();
   return (
     <div>
-      <Navigation />
-      <motion.div
-        className={classes.root}
-        initial={{ x: "calc(-100vw - 50%)" }}
-        animate={{ x: 0 }}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          delay: 0.2,
-        }}
-      >
-        <Typography
-          className={classes.title}
-          variant="h3"
-          component="h2"
-          style={{ color: red[600] }}
-        >
-          Photos Gallery
-        </Typography>
-      </motion.div>
-      {currentUser && <UploadForm />}
-      <ImageGrid setSelectedImg={setSelectedImg} />
-      {selectedImg && (
-        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Navigation />
+          <div className={classes.root}>
+            <Typography
+              className={classes.title}
+              variant="h3"
+              component="h2"
+              style={{ color: red[600] }}
+            >
+              Photos Gallery
+            </Typography>
+          </div>
+          {currentUser && <UploadForm />}
+          <ImageGrid setSelectedImg={setSelectedImg} />
+          {selectedImg && (
+            <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+          )}
+        </>
       )}
     </div>
   );
