@@ -18,9 +18,10 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
+    fontSize: "50px",
     letterSpacing: "12px",
-    fontFamily: "Amatic SC, cursive",
-    fontWeight: "700",
+    fontFamily: "Indie Flower, cursive",
+    fontWeight: "500",
   },
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,

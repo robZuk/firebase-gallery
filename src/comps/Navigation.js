@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontFamily: "Indie Flower, cursive",
-    letterSpacing: "6px",
+    letterSpacing: "3px",
     flexGrow: 1,
     color: "rgba(0, 0, 0, 0.87)",
   },
