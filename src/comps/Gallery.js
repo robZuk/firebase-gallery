@@ -5,10 +5,11 @@ import UploadForm from "../comps/UploadForm";
 import ImageGrid from "../comps/ImageGrid";
 import Modal from "../comps/Modal/Modal";
 import Navigation from "./Navigation";
-import Loader from "./Loader";
 import { makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
 import Typography from "@material-ui/core/Typography";
+import Backdrop from "@material-ui/core/Backdrop";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "12px",
     fontFamily: "Amatic SC, cursive",
     fontWeight: "700",
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: "#fff",
   },
 }));
 
@@ -37,27 +42,24 @@ const Gallery = () => {
   const classes = useStyles();
   return (
     <div>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <Navigation />
-          <div className={classes.root}>
-            <Typography
-              className={classes.title}
-              variant="h3"
-              component="h2"
-              style={{ color: red[600] }}
-            >
-              Photos Gallery
-            </Typography>
-          </div>
-          {currentUser && <UploadForm />}
-          <ImageGrid setSelectedImg={setSelectedImg} />
-          {selectedImg && (
-            <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
-          )}
-        </>
+      <Backdrop className={classes.backdrop} open={loading}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
+      <Navigation />
+      <div className={classes.root}>
+        <Typography
+          className={classes.title}
+          variant="h3"
+          component="h2"
+          style={{ color: red[600] }}
+        >
+          Photos Gallery
+        </Typography>
+      </div>
+      {currentUser && <UploadForm />}
+      <ImageGrid setSelectedImg={setSelectedImg} />
+      {selectedImg && (
+        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
       )}
     </div>
   );
