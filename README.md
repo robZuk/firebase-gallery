@@ -9,7 +9,6 @@
 - React Router 5
 - Firebase 9
 - Express
-- Bootstrap 5
 - styled components 5
 - material-ui 4
 - framer-motion 4
@@ -30,7 +29,6 @@ NODE_ENV = development
 PORT = 5000
 MONGO_URI = your mongodb uri
 JWT_SECRET = 'abc123'
-PAYPAL_CLIENT_ID = your paypal client id
 ```
 
 ### Install Dependencies
