@@ -6,13 +6,10 @@
 
 ### Technologies
 - React 17
-- React Router 5
 - Firebase 9
-- Express
 - styled components 5
 - material-ui 4
 - framer-motion 4
-- moment
 
 ### Features
 
@@ -25,10 +22,12 @@
 Create a .env file in then root and add the following
 
 ```
-NODE_ENV = development
-PORT = 5000
-MONGO_URI = your mongodb uri
-JWT_SECRET = 'abc123'
+API_KEY="",
+AUTH_DOMAIN="",
+PROJECT_ID="",
+STORAGE_BUCKET="",
+MESSAGING_SENDER_ID="",
+APP_ID=""
 ```
 
 ### Install Dependencies
@@ -42,8 +41,4 @@ npm start
 
 ```
 
-### Admin Panel
-```
-user: admin@example.com
-password: 123456
-```
+
